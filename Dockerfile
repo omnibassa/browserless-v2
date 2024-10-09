@@ -1,4 +1,5 @@
 FROM alpine:latest AS parallel
+
 RUN apk add --no-cache parallel
 
 FROM caddy:latest AS caddy
@@ -7,7 +8,7 @@ COPY Caddyfile ./
 
 RUN caddy fmt --overwrite Caddyfile
 
-FROM ghcr.io/browserless/chrome:latest
+FROM ghcr.io/browserless/base:latest
 
 COPY --from=caddy /srv/Caddyfile ./
 
