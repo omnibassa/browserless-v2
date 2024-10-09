@@ -1,5 +1,4 @@
 FROM alpine:latest AS parallel
-
 RUN apk add --no-cache parallel
 
 FROM caddy:latest AS caddy
